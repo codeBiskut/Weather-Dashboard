@@ -22,22 +22,22 @@ function displayWeather(event) {
     event.preventDefault()
     var cityName = cityEl.value
     
-    var rawCityList = localStorage.getItem('cityList');
-    cityList = JSON.parse(rawCityList);
-    console.log(cityName)
+    // var rawCityList = localStorage.getItem('cityList');
+    // cityList = JSON.parse(rawCityList);
+    // console.log(cityName)
 
-    if(cityList === null){
-        cityList.push(cityName)
-    }
-    else if(cityList.length > 5){
-        cityList.pop();
-        cityList.unshift(cityName)
-    }
-    else(
-        cityList.unshift(cityName)
-    )
+    // if(cityList === null){
+    //     cityList.push(cityName)
+    // }
+    // else if(cityList.length > 5){
+    //     cityList.pop();
+    //     cityList.unshift(cityName)
+    // }
+    // else(
+    //     cityList.unshift(cityName)
+    // )
 
-    localStorage.setItem('cityList', JSON.stringify(cityList))
+    // localStorage.setItem('cityList', JSON.stringify(cityList))
 
     var urlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=imperial`
 
