@@ -1,0 +1,17 @@
+h1 {
+    color: white;
+}
+h2 {
+    font-size: 30px;
+}
+
+.card-body{
+   
+}
+.prevSearch {
+    margin: 10px;
+}
+.fiveDayCard {
+    margin: 10px;
+    justify-content: right;
+}
