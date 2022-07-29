@@ -74,7 +74,6 @@ function displayWeather(event) {
                     var fiveDay = document.createElement('div')
                     fiveDay.setAttribute('class', 'fiveDayCard')
                     fiveDay.innerHTML=`
-                    <div class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
                             <h2 id="city-header-card-1" >${cityName} (3/30/2021)</h2>
@@ -84,9 +83,7 @@ function displayWeather(event) {
                             <p>UVI: <span>${fiveData.daily[i].uvi}</span> </p>
 
                         </div>
-                    </div>
-                </div>`
-
+                    </div>`
                 newcardcontainer.appendChild(fiveDay)
                 }
                  
