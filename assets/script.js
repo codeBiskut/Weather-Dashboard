@@ -57,7 +57,6 @@ function displayWeather(event) {
             })
             .then(function(fiveData){
                 console.log(fiveData)
-                console.log(currentData.wind.speed, currentData.main.humidity)
                 var currentDate= moment.unix(currentData.dt).format("MM/DD/YYYY")
                 var iconImage=document.createElement("img")
                 iconImage.setAttribute("src",`http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`)
@@ -73,7 +72,9 @@ function displayWeather(event) {
                 for(let i=1;i<=5;i++){
                     currentDate= moment.unix(currentData.dt).format("MM/DD/YYYY")
                     newDate = moment().add(i, 'd').format("MM/DD/YYYY")
-                    console.log(newDate)
+
+                    var iconImage=document.createElement("img")
+                    iconImage.setAttribute("src",`http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`)
 
                     var fiveDay = document.createElement('div')
                     fiveDay.setAttribute('class', 'fiveDayCard px-3')
@@ -81,6 +82,9 @@ function displayWeather(event) {
                     <div class="card">
                         <div class="card-body">
                             <h2 id="city-header-card-1" >${cityName} (${newDate})</h2>
+                            <div class="weather-icon">
+                            <img src="http://openweathermap.org/img/wn/${fiveData.daily[i].weather[0].icon}@2x.png"></img>
+                            </div>
                             <div class="weather-stats">
                             <p>Temp: <span >${fiveData.daily[i].temp.day} \u00B0F</span> </p>
                             <p>Wind: <span>${fiveData.daily[i].wind_speed} MPH</span> </p>
