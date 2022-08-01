@@ -12,3 +12,6 @@ h2 {
 .card{
     flex-direction: row;
 }
+.row{
+    --bs-gutter-x: 0;
+}

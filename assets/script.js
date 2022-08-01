@@ -72,15 +72,19 @@ function displayWeather(event) {
 
                 for(let i=0;i<5;i++){
                     var fiveDay = document.createElement('div')
-                    fiveDay.setAttribute('class', 'fiveDayCard')
+                    fiveDay.setAttribute('class', 'fiveDayCard px-3')
                     fiveDay.innerHTML=`
                     <div class="card">
                         <div class="card-body">
                             <h2 id="city-header-card-1" >${cityName} (3/30/2021)</h2>
+                            <div class="weather-stats">
                             <p>Temp: <span >${fiveData.daily[i].temp.day} \u00B0F</span> </p>
                             <p>Wind: <span>${fiveData.daily[i].wind_speed} MPH</span> </p>
                             <p>Humidity: <span >${fiveData.daily[i].humidity}%</span></p>
                             <p>UVI: <span>${fiveData.daily[i].uvi}</span> </p>
+                            </div>
+                            <div class="weather-icon">
+                            </div>
 
                         </div>
                     </div>`
