@@ -8,8 +8,8 @@ var windEl = document.querySelector('#main-wind')
 var humidityEl = document.querySelector('#main-humidity')
 var cityHeaderCard1El = document.querySelector("#city-header-card-1")
 var weatherCardContainerEl = document.querySelector('weather-card-container')
+var weatherPageEl = document.querySelector('.row')
 var fiveDayContainerEl = document.querySelector('#five-day-container')
-var newcardcontainer = document.querySelector('.row')
 
 var cityList = [];
 
@@ -20,6 +20,9 @@ var api = "d1897c6f12c919e09a996830824f534e"
 
 function displayWeather(event) {
     event.preventDefault()
+
+    fiveDayContainerEl.innerHTML=''
+
     var cityName = cityEl.value
     
     // var rawCityList = localStorage.getItem('cityList');
@@ -96,7 +99,7 @@ function displayWeather(event) {
 
                         </div>
                     </div>`
-                newcardcontainer.appendChild(fiveDay)
+                fiveDayContainerEl.appendChild(fiveDay)
                 }
                  
 
