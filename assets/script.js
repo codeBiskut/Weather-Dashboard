@@ -70,13 +70,17 @@ function displayWeather(event) {
                 humidityEl.textContent=`${currentData.main.humidity}%`
                 uviEl.textContent=fiveData.current.humidity
 
-                for(let i=0;i<5;i++){
+                for(let i=1;i<=5;i++){
+                    currentDate= moment.unix(currentData.dt).format("MM/DD/YYYY")
+                    newDate = moment().add(i, 'd').format("MM/DD/YYYY")
+                    console.log(newDate)
+
                     var fiveDay = document.createElement('div')
                     fiveDay.setAttribute('class', 'fiveDayCard px-3')
                     fiveDay.innerHTML=`
                     <div class="card">
                         <div class="card-body">
-                            <h2 id="city-header-card-1" >${cityName} (3/30/2021)</h2>
+                            <h2 id="city-header-card-1" >${cityName} (${newDate})</h2>
                             <div class="weather-stats">
                             <p>Temp: <span >${fiveData.daily[i].temp.day} \u00B0F</span> </p>
                             <p>Wind: <span>${fiveData.daily[i].wind_speed} MPH</span> </p>
