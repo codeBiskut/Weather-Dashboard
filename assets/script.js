@@ -8,8 +8,8 @@ var windEl = document.querySelector('#main-wind')
 var humidityEl = document.querySelector('#main-humidity')
 var cityHeaderCard1El = document.querySelector("#city-header-card-1")
 var weatherCardContainerEl = document.querySelector('weather-card-container')
-var weatherPageEl = document.querySelector('.row')
 var fiveDayContainerEl = document.querySelector('#five-day-container')
+var listGroupEl = document.querySelector('.list-group')
 
 var cityList = [];
 rawCityList = localStorage.getItem('cityList');
@@ -22,6 +22,15 @@ else{
 var api = "d1897c6f12c919e09a996830824f534e"
 
 function init(){
+    if(cityList.length > 0){
+        for(let i=0; i<cityList.length;i++){
+            var cityListItem = document.createElement('li')
+            cityListItem.setAttribute('class', 'list-group-item')
+            cityListItem.innerHTML = cityList[i]
+            listGroupEl.appendChild(cityListItem)
+        }
+    }
+
     var mostRecentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityList[0]}&appid=${api}&units=imperial`
 
     fetch(mostRecentUrl)
@@ -39,7 +48,7 @@ function init(){
             TempEl.textContent=`${currentData.main.temp} \u00B0F`
             windEl.innerHTML=`${currentData.wind.speed} MPH`
             humidityEl.textContent=`${currentData.main.humidity}%`
-            uviEl.textContent=fiveData.current.humidity
+            uviEl.textContent=currentData.main.humidity
         })
 }
 
