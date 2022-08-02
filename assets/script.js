@@ -12,8 +12,36 @@ var weatherPageEl = document.querySelector('.row')
 var fiveDayContainerEl = document.querySelector('#five-day-container')
 
 var cityList = [];
+rawCityList = localStorage.getItem('cityList');
+if(rawCityList === null){
 
+}
+else{
+    cityList = JSON.parse(rawCityList);
+}
 var api = "d1897c6f12c919e09a996830824f534e"
+
+function init(){
+    var mostRecentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityList[0]}&appid=${api}&units=imperial`
+
+    fetch(mostRecentUrl)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (currentData) {
+            var currentDate= moment.unix(currentData.dt).format("MM/DD/YYYY")
+            var iconImage=document.createElement("img")
+            iconImage.setAttribute("src",`http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`)
+            cityHeaderEl.innerHTML=  currentData.name + " "+ currentDate
+            cityHeaderEl.appendChild(iconImage)
+
+                
+            TempEl.textContent=`${currentData.main.temp} \u00B0F`
+            windEl.innerHTML=`${currentData.wind.speed} MPH`
+            humidityEl.textContent=`${currentData.main.humidity}%`
+            uviEl.textContent=fiveData.current.humidity
+        })
+}
 
 
 //step2: make an addEventListener on Submit and create displayDashboard - it shows current weather and last five day
@@ -25,22 +53,26 @@ function displayWeather(event) {
 
     var cityName = cityEl.value
     
-    // var rawCityList = localStorage.getItem('cityList');
-    // cityList = JSON.parse(rawCityList);
-    // console.log(cityName)
+    rawCityList = localStorage.getItem('cityList');
+    if(rawCityList === null){
 
-    // if(cityList === null){
-    //     cityList.push(cityName)
-    // }
-    // else if(cityList.length > 5){
-    //     cityList.pop();
-    //     cityList.unshift(cityName)
-    // }
-    // else(
-    //     cityList.unshift(cityName)
-    // )
+    }
+    else{
+        cityList = JSON.parse(rawCityList);
+    }
 
-    // localStorage.setItem('cityList', JSON.stringify(cityList))
+    if(cityList.length === 0){
+        cityList.push(cityName)
+    }
+    else if(cityList.length >= 5){
+        cityList.unshift(cityName)
+        cityList.pop();
+    }
+    else(
+        cityList.unshift(cityName)
+    )
+
+    localStorage.setItem('cityList', JSON.stringify(cityList))
 
     var urlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=imperial`
 
@@ -109,7 +141,7 @@ function displayWeather(event) {
 
 }
 
-
+init();
 
 cityFormEl.addEventListener("submit", displayWeather)
 
