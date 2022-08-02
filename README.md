@@ -1,23 +1,43 @@
-# Weather-Dashboard
 
-## User Story
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+  # Weather Dashboard   
 
-## Acceptance Criteria
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
+  ## Description
+  ---
+
+  The goal of this challenege was to create a weather dashboard that displays weather information for the city that you searched, as well as display a five-day forecast for said city. The program uses the OpenWeather API to grab current weather data for the city that you search, and calls both the currentweather and the five-day weather data for the city. The five-day cards are then dynamically generated and appended to the page.   
+
+  ## Installation
+  ---
+
+  All you need to do is clone the repository! Everything else is run in the browser window.   
+
+  ## Usage
+  ---
+
+  Type in a city in the search form, or select a city from the list of previously searched cities. Weather data will then be displayed based on what you searched.   
+
+  ## Credits
+  ---
+
+  -Contributor's GitHub: [codeBiskut](github.com/codeBiskut)   
+  -Contributor's Email: <josh.rinehart.2k@gmail.com>   
+
+  ## License
+  ---
+
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   
+
+  ## How to Contribute
+  ---
+
+     
+
+  [Contributor Covenant](https://www.contributor-covenant.org/)   
+
+  ## Tests
+  ---
+
+  No tests were written for this application.   
+
+  
